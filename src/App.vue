@@ -109,6 +109,7 @@ article#about-us div {
   margin: 2rem 0;
   font-size: 1.3rem;
   line-height: 1.5em;
+  text-align: justify;
 }
 
 footer {
