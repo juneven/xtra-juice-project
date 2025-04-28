@@ -152,7 +152,7 @@ footer {
   }
 
   nav span.logo img {
-    width: 25vw;
+    width: 20vw;
   }
 
   nav ul {
@@ -198,6 +198,14 @@ footer {
   .header-products .right-section-menu {
     width: 100vw;
     margin: 1rem auto;
+  }
+
+  .categories a {
+    font-size: 1rem;
+  }
+
+  .right-section-menu .buttons {
+    font-size: 1.3rem;
   }
 
   .content-products {
