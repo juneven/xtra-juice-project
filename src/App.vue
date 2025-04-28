@@ -148,6 +148,11 @@ footer {
 
   nav span.logo {
     margin-left: 0;
+    margin: .5rem 0;
+  }
+
+  nav span.logo img {
+    width: 25vw;
   }
 
   nav ul {
