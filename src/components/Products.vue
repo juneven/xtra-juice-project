@@ -160,7 +160,7 @@ export default {
           benefits: ['Meningkatkan daya tahan tubuh', 'Sistem Pencernaan', 'Ibu Hamil'],
         },
         {
-          nameEN: "Manggo",
+          nameEN: "Mango",
           nameIND: "Mangga",
           price: "12.000",
           img: ManggoJuice,
