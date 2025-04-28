@@ -6,8 +6,8 @@
 
     <ul ref="sidebar">
       <li><a href="/">Home</a></li>
-      <li><a href="article#products">Products</a></li>
-      <li><a href="article#about-us">About Us</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#about-us">About Us</a></li>
     </ul>
 
     <HamburgerNavbar @show="showSideBar"/>
