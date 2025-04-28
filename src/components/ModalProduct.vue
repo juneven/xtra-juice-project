@@ -16,7 +16,9 @@
         <div class="informational-product">
           <div class="recommendation-product">
             <h2>Recommended For:</h2>
-            <p v-for="(benefit, index) in details.benefits" :key="index">{{ index + 1 }}. {{ benefit }}</p>
+            <ul v-for="(benefit, index) in details.benefits" :key="index">
+              <li>{{ benefit }}</li>
+            </ul>
           </div>
 
           <div class="nutrition-product">
@@ -96,6 +98,10 @@ export default {
   display: flex;
   height: 50%;
   justify-content: space-between;
+}
+
+.informational-product .recommendation-product ul li  {
+  font-size: 1rem;
 }
 
 .informational-product .nutrition-product {
