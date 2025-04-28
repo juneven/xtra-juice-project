@@ -269,6 +269,10 @@ footer {
   .detail-product-information .btn-back {
     margin: 1rem auto;
   }
+
+  article#about-us {
+    margin-top: 3rem;
+  }
 }
 
 /* Ukuran Mobile Sedang sampai besar */
