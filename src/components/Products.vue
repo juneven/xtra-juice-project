@@ -20,7 +20,7 @@
     </div>
 
     <div class="content-products" v-if="sectionMenuSelected === 'Juices'">
-      <div class="card" v-for="(juice, index) in filteredJuicesMenu" :key="index">
+      <div class="card" data-aos="fade-down" v-for="(juice, index) in filteredJuicesMenu" :key="index">
         <div class="card-img">
           <img :src="juice.img" :alt="juice.nameEN" ref="imgElement" />
         </div>
@@ -98,7 +98,7 @@ export default {
         {
           nameEN: "Apple",
           nameIND: "Apel",
-          price: "12.000",
+          price: "13.000",
           img: AppleJuice,
           compositionNutritions: ['Kaya akan serat', 'Vitamin C', 'Antioksidan'],
           benefits: ['Detoks Ringan', 'Menjaga Berat Badan', 'Kulit Kusam'],
@@ -106,7 +106,7 @@ export default {
         {
           nameEN: "Avocado",
           nameIND: "Alpukat",
-          price: "12.000",
+          price: "13.000",
           img: AvocadoJuice,
           compositionNutritions: ['Lemak Sehat', 'Vitamin E', 'Kalium', 'Serat Tinggi'],
           benefits: ['Bulking', 'Menjaga Kelembapan Kulit', 'Energi Tahan Lama'],
@@ -114,7 +114,7 @@ export default {
         {
           nameEN: "Carrot",
           nameIND: "Wortel",
-          price: "12.000",
+          price: "13.000",
           img: CarrotJuice,
           compositionNutritions: ['Beta Karoten', 'Vitamin A', 'Antioksidan'],
           benefits: ['Kesehatan Mata', 'Kulit Kering', 'Daya Tahan Tubuh'],
@@ -122,7 +122,7 @@ export default {
         {
           nameEN: "Cucumber",
           nameIND: "Timun",
-          price: "12.000",
+          price: "13.000",
           img: CucumberJuice,
           compositionNutritions: ['Kandungan ', 'Vitamin C', 'Antioksidan'],
           benefits: ['Hidrasi Kulit', 'Menurunkan Tekanan Darah', 'Detoksifikasi'],
@@ -130,7 +130,7 @@ export default {
         {
           nameEN: "Lemon",
           nameIND: "Lemon",
-          price: "12.000",
+          price: "13.000",
           img: LemonJuice,
           compositionNutritions: ['Vitamin C Tinggi', 'Antioksidan', 'Asam Sitrat'],
           benefits: ['Diet', 'Metabolisme Sehat', 'Kulit Cerah'],
@@ -138,7 +138,7 @@ export default {
         {
           nameEN: "Corn",
           nameIND: "Jagung",
-          price: "12.000",
+          price: "13.000",
           img: CornJuice,
           compositionNutritions: ['Karbohidrat Kompleks', 'Vitamin B1', 'Serat'],
           benefits: ['Energi Tambahan', 'Camilan Sehat', 'Anak-anak'],
@@ -146,7 +146,7 @@ export default {
         {
           nameEN: "Grapes",
           nameIND: "Anggur",
-          price: "12.000",
+          price: "13.000",
           img: GrapesJuice,
           compositionNutritions: ['Antioksidan Tinggi (resveratrol)', 'Vitamin C', 'polifenol'],
           benefits: ['Anti-aging', 'Kesehatan Jantung', 'Kulit Kusam'],
@@ -154,7 +154,7 @@ export default {
         {
           nameEN: "Guava",
           nameIND: "Jambu",
-          price: "12.000",
+          price: "13.000",
           img: GuavaJuice,
           compositionNutritions: ['Vitamin C Tinggi', 'Serat', 'Folat'],
           benefits: ['Meningkatkan daya tahan tubuh', 'Sistem Pencernaan', 'Ibu Hamil'],
@@ -162,7 +162,7 @@ export default {
         {
           nameEN: "Mango",
           nameIND: "Mangga",
-          price: "12.000",
+          price: "13.000",
           img: ManggoJuice,
           compositionNutritions: ['Vitamin A & C', 'Beta-karoten', 'Gula Alami'],
           benefits: ['Energi Cepat', 'Kulit Bercahaya', 'Bulking Ringan'],
@@ -170,7 +170,7 @@ export default {
         {
           nameEN: "Melon",
           nameIND: "Melon",
-          price: "12.000",
+          price: "13.000",
           img: MelonJuice,
           compositionNutritions: ['Kandungan Air Tinggi', 'Vitamin C', 'Kalium'],
           benefits: ['Hidrasi Tubuh', 'Kulit Sensitif', 'Pencernaan Ringan'],
@@ -178,7 +178,7 @@ export default {
         {
           nameEN: "Orange",
           nameIND: "Jeruk",
-          price: "12.000",
+          price: "13.000",
           img: OrangeJuice,
           compositionNutritions: ['Vitamin C', 'Antioksidan', 'Serat Larut'],
           benefits: ['Meningkatkan daya tahan tubuh', 'Kulit Kering'],
@@ -186,7 +186,7 @@ export default {
         {
           nameEN: "Papaya",
           nameIND: "Pepaya",
-          price: "12.000",
+          price: "13.000",
           img: PapayaJuice,
           compositionNutritions: ['Enzim Papain', 'Vitamin A & C', 'Serat'],
           benefits: ['Pencernaan Sehat', 'Kulit Kasar', 'Antiinflamasi'],
@@ -194,7 +194,7 @@ export default {
         {
           nameEN: "Strawberry",
           nameIND: "Stroberi",
-          price: "12.000",
+          price: "13.000",
           img: StrawberryJuice,
           compositionNutritions: ['Vitamin C', 'Asam Ellagic', 'Mangan'],
           benefits: ['Mencerahkan Kulit', 'Anti-aging', 'Program Diet'],
@@ -202,7 +202,7 @@ export default {
         {
           nameEN: "Soursop",
           nameIND: "Sirsak",
-          price: "12.000",
+          price: "13.000",
           img: SoursopJuice,
           compositionNutritions: ['Vitamin B1 & C', 'Serat', 'Senyawa AntiKanker'],
           benefits: ['Imunitas Tubuh', 'Mengurangi Peradangan', 'Kesehatan Pencernaan'],
@@ -210,7 +210,7 @@ export default {
         {
           nameEN: "Tomato",
           nameIND: "Tomat",
-          price: "12.000",
+          price: "13.000",
           img: TomatoJuice,
           compositionNutritions: ['Likopen', 'Vitamin C & A', 'Kalium'],
           benefits: ['Kulit Berminyak', 'Antioksidan Tinggi', 'Jantung Sehat'],
@@ -218,7 +218,7 @@ export default {
         {
           nameEN: "Watermelon",
           nameIND: "Semangka",
-          price: "12.000",
+          price: "13.000",
           img: WatermelonJuice,
           compositionNutritions: ['Kandungan Air Tinggi', 'Likopen', 'Vitamin A & C'],
           benefits: ['Hidrasi Maksimal', 'Aktifitas Fisik', 'Kulit Segar'],
@@ -228,7 +228,7 @@ export default {
         {
           nameEN: "Burger",
           nameIND: "Burger",
-          price: "10.000",
+          price: "15.000",
           img: Burger,
           compositionNutritions: ['Protein Tinggi', 'Lemak', 'Zat Besi'],
           benefits: ['Diet Tinggi Protein', 'Makanan Cepat dan Mengenyangkan']
@@ -236,7 +236,7 @@ export default {
         {
           nameEN: "Hotdog",
           nameIND: "Hotdog",
-          price: "14.000",
+          price: "12.000",
           img: Hotdog,
           compositionNutritions: ['Daging Olahan', 'Protein', 'Natrium'],
           benefits: ['Camilan Praktis dan Cepat Saji', 'Penambah Energi untuk Aktivitas Harian']
@@ -314,8 +314,6 @@ export default {
 article#products {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
   position: relative;
 }
 
@@ -323,8 +321,8 @@ article#products .header-products {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 90vw;
   border-bottom: 3px solid whitesmoke;
+  margin: 0 2.5rem;
 }
 
 .header-products .right-section-menu {
