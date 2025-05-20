@@ -1,8 +1,6 @@
 <template>
   <nav data-aos="fade-down">
-    <span class="logo" data-aos="fade-right">
-      <img src="../assets/header-img/logo.png" alt="Logo">
-    </span>
+    <img class="logo" src="../assets/header-img/logo.png" alt="Logo">
 
     <ul ref="sidebar">
       <li><a href="/">Home</a></li>
@@ -35,20 +33,15 @@ export default {
 <style>
 nav {
   background-color: #ff490f;
-  padding: 0.8em;
   border-radius: 20px;
   display: flex;
   align-items: center;
-  width: 95vw;
-  height: 6vmax;
+  height: 13%;
 }
 
-nav span.logo {
-  margin-left: 2rem;
-}
-
-.logo img {
+nav img.logo {
   width: 10vmax;
+  margin-left: 2.5rem;
 }
 
 nav ul {
@@ -56,8 +49,8 @@ nav ul {
   display: flex;
   justify-content: space-around;
   padding: 0.5em;
-  width: 50vmax;
-  margin: 0 auto;
+  width: 50%;
+  margin: auto;
   font-size: 1.3rem;
 }
 
@@ -65,7 +58,6 @@ nav ul li a {
   text-decoration: none;
   color: #fffafa;
   font-weight: bold;
-  padding: 0.5em;
-  margin: 1rem;
+  border-radius: 10px;
 }
 </style>

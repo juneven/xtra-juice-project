@@ -14,33 +14,25 @@
   <main>
     <Products />
 
-    <article id="about-us">
-      <h2>About Us</h2>
-
-      <div class="p1">
-        <p>Usaha jus ini didirikan oleh Pak Aga dan istrinya pada pertengahan tahun 2006 di kantin Universitas Internasional Batam (UIB). Berangkat dari kepedulian terhadap gaya hidup mahasiswa/i yang banyak mengonsumsi minuman instan, mereka ingin menawarkan alternatif yang lebih sehat melalui jus buah segar. Dengan menggunakan bahan-bahan alami tanpa pengawet, usaha ini hadir untuk mengajak generasi muda lebih peduli terhadap kesehatan sejak dini, dimulai dari pilihan minuman sehari-hari.</p>
-      </div>
-
-      <div class="p2">
-        <p>Saat ini, kami menyediakan 16 pilihan jus buah segar yang bisa disesuaikan dengan selera dan kebutuhan. Selain jus, kami juga menambahkan beberapa menu makanan ringan seperti roti telur, hotdog, dan burger yang dibuat sendiri oleh istri Pak Aga. Semua menu disiapkan dengan cita rasa rumahan dan bahan yang terjaga kualitasnya. Usaha ini kini turut dibantu oleh anak mereka, menjadikannya usaha ini yang terus berkembang sambil menjaga komitmen terhadap kualitas, kesehatan, dan pelayanan yang ramah.</p>
-      </div>
-    </article>
+    <About />
   </main>
 
   <footer>
-      <p class="copyright">&copy;X-TRA JUICE | ALL RIGHTS RESERVED</p>
+    <p class="copyright">&copy;X-TRA JUICE | ALL RIGHTS RESERVED</p>
   </footer>
 </template>
 
 <script>
 import NavBar from "./components/Navbar.vue";
 import Products from "./components/Products.vue";
+import About from "./components/About.vue";
 
 export default {
   name: "App",
   components: {
     NavBar,
     Products,
+    About,
   },
 };
 </script>
@@ -54,11 +46,11 @@ export default {
 
 body {
   font-size: 20px;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 #app {
   overflow-x: hidden;
+  font-family: "Roboto", sans-serif;
 }
 
 header {
@@ -70,19 +62,14 @@ header {
   padding: 1rem;
 }
 
-header .header-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 header .left-content {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   color: white;
   font-size: 5rem;
   font-weight: bold;
-  margin: 2.5em 1em;
+  margin: 2em 0.5em;
 }
 
 .left-content span:nth-child(2) {
@@ -92,24 +79,6 @@ header .left-content {
 
 main {
   margin: 3rem 0.5rem;
-}
-
-article#about-us {
-  margin-top: 2rem;
-  padding: .5rem;
-}
-
-article#about-us h2 {
-  font-size: 2.5rem;
-  text-align: center;
-  margin-bottom: 1em;
-}
-
-article#about-us div {
-  margin: 2rem 0;
-  font-size: 1.3rem;
-  line-height: 1.5em;
-  text-align: justify;
 }
 
 footer {
@@ -125,35 +94,29 @@ footer {
 @media screen and (max-width: 480px) {
   header {
     padding: 0;
-    width: 100vw;
   }
 
   header .left-content {
-    font-size: 2.6rem;
-    margin: 6.5em 0.5em;
+    font-size: 3.5rem;
+    margin: 3em 0.5em;
     position: relative;
     z-index: 1;
   }
 
   .left-content span:nth-child(2) {
-    font-size: 1.3rem;
+    font-size: 2rem;
   }
 
   nav {
     border-radius: 0;
-    width: 100vw;
+    height: 8%;
     justify-content: space-between;
     position: relative;
     z-index: 2;
   }
 
-  nav span.logo {
-    margin-left: 0;
-    margin: .5rem 0;
-  }
-
-  nav span.logo img {
-    width: 20vw;
+  nav img.logo {
+    margin-left: 0.5rem;
   }
 
   nav ul {
@@ -173,7 +136,7 @@ footer {
   }
 
   nav ul li {
-    width: 50vw;
+    width: 50%;
   }
 
   nav ul.slide {
@@ -182,12 +145,16 @@ footer {
 
   .menu-toggle {
     display: flex;
+    margin-right: 1rem;
+  }
+
+  article#products {
+    align-items: center;
   }
 
   article#products .header-products {
     flex-direction: column;
     border: none;
-    width: 95vw;
   }
 
   .header-products h2.title {
@@ -233,54 +200,59 @@ footer {
   }
 
   .modal {
-    width: 90vw;
-    height: 80vh;
-    top: 50vh;
+    width: 90%;
+    height: 70%;
   }
 
   .header-modal img {
-    width: 30vw;
+    width: 20%;
   }
 
   .content-modal {
     flex-direction: column;
-  }
-
-  .content-modal .product-picture {
-    border-radius: 10px;
-    width: 60%;
-    height: 20%;
-    text-align: center;
-    margin: 0 auto;
-  }
-
-  .content-modal .product-picture img {
-    height: 35vw;
+    align-items: center;
   }
 
   .content-modal .detail-product-information {
-    width: 100%;
-    margin-top: 0.5rem;
+    width: 90%;
+  }
+
+  .detail-product-information .header-detail-product-information {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-top: 1rem;
   }
 
   .detail-product-information h2 {
-    font-size: 1rem;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
   }
 
   .detail-product-information h1 {
     font-size: 2rem;
   }
 
-  .informational-product .recommendation-product {
-    width: 50%;
+  .informational-product h2 {
+    font-size: 1rem;
+    margin-top: 0.5rem;
   }
 
-  .detail-product-information .btn-back {
-    margin: 1rem auto;
+  .informational-product .nutrition-product {
+    width: 60%;
   }
 
   article#about-us {
-    margin-top: 3rem;
+    flex-direction: column;
+  }
+
+  .left-content {
+    display: none;
+  }
+
+  .right-content {
+    width: 75%;
+    text-align: justify;
   }
 }
 
@@ -407,8 +379,8 @@ footer {
   }
 
   .content-modal .detail-product-information {
-    width: 100%; 
-    padding: .5rem;
+    width: 100%;
+    padding: 0.5rem;
   }
 
   .detail-product-information h2 {
@@ -426,7 +398,7 @@ footer {
   }
 
   .informational-product div {
-    margin: 0 .5rem;
+    margin: 0 0.5rem;
     width: 50%;
   }
 
@@ -436,6 +408,19 @@ footer {
 
   .detail-product-information .btn-back {
     margin: 2.5rem auto;
+  }
+
+  article#about-us {
+    flex-direction: column;
+  }
+
+  .left-content {
+    display: none;
+  }
+
+  .right-content {
+    width: 75%;
+    text-align: justify;
   }
 }
 
@@ -541,8 +526,8 @@ footer {
   }
 
   .content-modal .detail-product-information {
-    width: 100%; 
-    padding: .5rem;
+    width: 100%;
+    padding: 0.5rem;
   }
 
   .detail-product-information h2 {
@@ -560,7 +545,7 @@ footer {
   }
 
   .informational-product div {
-    margin: 0 .5rem;
+    margin: 0 0.5rem;
     width: 50%;
   }
 
@@ -570,6 +555,19 @@ footer {
 
   .detail-product-information .btn-back {
     margin: 2.5rem auto;
+  }
+
+  article#about-us {
+    flex-direction: column;
+  }
+
+  .left-content {
+    display: none;
+  }
+
+  .right-content {
+    width: 75%;
+    text-align: justify;
   }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <article id="products" class="backdrop">
+  <article id="products">
     <div class="header-products">
       <h2 class="title">Products</h2>
 
@@ -38,7 +38,7 @@
       </div>
     </div>
     <div class="content-products" v-else-if="sectionMenuSelected === 'Foods'">
-      <div class="card" v-for="(food, index) in foods" :key="index">
+      <div class="card" data-aos="fade-down" v-for="(food, index) in foods" :key="index">
         <div class="card-img">
           <img :src="food.img" :alt="food.nameEN" ref="imgElement" />
         </div>
@@ -315,6 +315,7 @@ article#products {
   display: flex;
   flex-direction: column;
   position: relative;
+  height: 100%;
 }
 
 article#products .header-products {
@@ -322,12 +323,12 @@ article#products .header-products {
   justify-content: space-between;
   align-items: center;
   border-bottom: 3px solid whitesmoke;
-  margin: 0 2.5rem;
+  margin: 3rem 2.5rem 0;
 }
 
 .header-products .right-section-menu {
   margin-right: 1.5rem;
-  width: 30vw;
+  width: 30%;
   display: flex;
   justify-content: space-between;
   align-items: center;
