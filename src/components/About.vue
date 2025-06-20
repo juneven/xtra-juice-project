@@ -1,15 +1,17 @@
 <template>
   <article id="about-us">
-    <div class="left-content">
-      <img src="../assets/about-img/picture-1.jpeg" alt="X-TRA Juice Picture 1" data-aos="fade-down" />
-      <img src="../assets/about-img/picture-2.jpeg" alt="X-TRA Juice Picture 2" data-aos="fade-up" />
-    </div>
-    <div class="right-content">
-      <h3 class="sub-header-right-content" data-aos="fade-right">ABOUT US</h3>
-
+    <div class="about-header-content">
+      <h3 class="header-title" data-aos="fade-right">ABOUT US</h3>
       <div class="underline" data-aos="zoom-in"></div>
+    </div>
 
-      <div class="content-information">
+    <div class="about-content">
+      <div class="left-content">
+        <img src="../assets/about-img/picture-1.jpeg" alt="X-TRA Juice Picture 1" data-aos="fade-down" />
+        <img src="../assets/about-img/picture-2.jpeg" alt="X-TRA Juice Picture 2" data-aos="fade-up" />
+      </div>
+
+      <div class="right-content">
         <p class="p1" data-aos="fade-left">
           Usaha jus ini didirikan oleh Pak Aga dan istrinya pada pertengahan tahun 2006 di kantin Universitas Internasional Batam (UIB). Berangkat dari kepedulian terhadap gaya hidup mahasiswa/i yang banyak mengonsumsi minuman instan,
           mereka ingin menawarkan alternatif yang lebih sehat melalui jus buah segar. Dengan menggunakan bahan-bahan alami tanpa pengawet, usaha ini hadir untuk mengajak generasi muda lebih peduli terhadap kesehatan sejak dini, dimulai dari
@@ -28,9 +30,29 @@
 
 <style>
 article#about-us {
-  margin: 4rem;
-  width: 100%;
+  margin: 4rem 2rem;
   display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+article#about-us .about-header-content h3.header-title {
+  font-size: 2.5rem;
+  letter-spacing: 5px;
+  color: #0a090c;
+}
+
+article#about-us .about-header-content .underline {
+  width: 12%;
+  height: 10px;
+  background-color: #ff490f;
+  border-radius: 10px;
+}
+
+.about-content {
+  display: flex;
+  align-items: flex-start;
+  padding: .5rem .75rem;
   gap: 1rem;
 }
 
@@ -39,10 +61,11 @@ article#about-us {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  gap: 1.5rem;
 }
 
 .left-content img {
-  width: 40%;
+  width: 100%;
   border-radius: 10px;
 }
 
@@ -51,32 +74,14 @@ article#about-us {
 }
 
 .right-content {
-  width: 40%;
+  width: 50%;
   text-align: justify;
 }
 
-.right-content h3.sub-header-right-content {
-  font-size: 3rem;
-  letter-spacing: 5px;
-  color: #0a090c;
-  margin-bottom: 0.5rem;
-}
-
-.right-content .underline {
-  width: 33%;
-  height: 3%;
-  background-color: #ff490f;
-  border-radius: 10px;
-}
-
-.right-content .content-information {
+.right-content p {
   font-size: 1.1rem;
   margin: 1em 0;
   color: #666;
-  line-height: 1.5em;
-}
-
-.right-content .content-information p {
-  margin: 1.5rem 0;
+  line-height: 1.85em;
 }
 </style>

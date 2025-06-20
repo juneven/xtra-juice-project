@@ -8,6 +8,7 @@
           <a class="beverages active" ref="beveragesBtn" @click="addClassActive">Juices</a>
           <a class="foods" ref="foodsBtn" @click="addClassActive">Foods</a>
         </div>
+
         <div class="buttons">
           <a class="left-arrow" @click="previousPage">
             <i class="bi bi-arrow-left-square-fill"></i>
@@ -37,7 +38,7 @@
         <a class="btn-details" @click="seeDetails(juice)">View Details</a>
       </div>
     </div>
-    <div class="content-products" v-else-if="sectionMenuSelected === 'Foods'">
+    <div class="content-products" v-else-if="sectionMenuSelected === 'Foods'" :class="{ foods: sectionMenuSelected }">
       <div class="card" data-aos="fade-down" v-for="(food, index) in foods" :key="index">
         <div class="card-img">
           <img :src="food.img" :alt="food.nameEN" ref="imgElement" />
@@ -56,7 +57,7 @@
       </div>
     </div>
 
-    <ModalProduct v-if="showModal" :details="details" :sectionMenuName="sectionMenuSelected" @close="seeDetails " />
+    <ModalProduct v-if="showModal" :details="details" :sectionMenuName="sectionMenuSelected" @close="seeDetails" />
   </article>
 </template>
 
@@ -100,128 +101,128 @@ export default {
           nameIND: "Apel",
           price: "13.000",
           img: AppleJuice,
-          compositionNutritions: ['Kaya akan serat', 'Vitamin C', 'Antioksidan'],
-          benefits: ['Detoks Ringan', 'Menjaga Berat Badan', 'Kulit Kusam'],
+          compositionNutritions: ["Kaya akan serat", "Vitamin C", "Antioksidan"],
+          benefits: ["Detoks Ringan", "Menjaga Berat Badan", "Kulit Kusam"],
         },
         {
           nameEN: "Avocado",
           nameIND: "Alpukat",
           price: "13.000",
           img: AvocadoJuice,
-          compositionNutritions: ['Lemak Sehat', 'Vitamin E', 'Kalium', 'Serat Tinggi'],
-          benefits: ['Bulking', 'Menjaga Kelembapan Kulit', 'Energi Tahan Lama'],
+          compositionNutritions: ["Lemak Sehat", "Vitamin E", "Kalium", "Serat Tinggi"],
+          benefits: ["Bulking", "Menjaga Kelembapan Kulit", "Energi Tahan Lama"],
         },
         {
           nameEN: "Carrot",
           nameIND: "Wortel",
           price: "13.000",
           img: CarrotJuice,
-          compositionNutritions: ['Beta Karoten', 'Vitamin A', 'Antioksidan'],
-          benefits: ['Kesehatan Mata', 'Kulit Kering', 'Daya Tahan Tubuh'],
+          compositionNutritions: ["Beta Karoten", "Vitamin A", "Antioksidan"],
+          benefits: ["Kesehatan Mata", "Kulit Kering", "Daya Tahan Tubuh"],
         },
         {
           nameEN: "Cucumber",
           nameIND: "Timun",
           price: "13.000",
           img: CucumberJuice,
-          compositionNutritions: ['Kandungan ', 'Vitamin C', 'Antioksidan'],
-          benefits: ['Hidrasi Kulit', 'Menurunkan Tekanan Darah', 'Detoksifikasi'],
+          compositionNutritions: ["Kandungan ", "Vitamin C", "Antioksidan"],
+          benefits: ["Hidrasi Kulit", "Menurunkan Tekanan Darah", "Detoksifikasi"],
         },
         {
           nameEN: "Lemon",
           nameIND: "Lemon",
           price: "13.000",
           img: LemonJuice,
-          compositionNutritions: ['Vitamin C Tinggi', 'Antioksidan', 'Asam Sitrat'],
-          benefits: ['Diet', 'Metabolisme Sehat', 'Kulit Cerah'],
+          compositionNutritions: ["Vitamin C Tinggi", "Antioksidan", "Asam Sitrat"],
+          benefits: ["Diet", "Metabolisme Sehat", "Kulit Cerah"],
         },
         {
           nameEN: "Corn",
           nameIND: "Jagung",
           price: "13.000",
           img: CornJuice,
-          compositionNutritions: ['Karbohidrat Kompleks', 'Vitamin B1', 'Serat'],
-          benefits: ['Energi Tambahan', 'Camilan Sehat', 'Anak-anak'],
+          compositionNutritions: ["Karbohidrat Kompleks", "Vitamin B1", "Serat"],
+          benefits: ["Energi Tambahan", "Camilan Sehat", "Anak-anak"],
         },
         {
           nameEN: "Grapes",
           nameIND: "Anggur",
           price: "13.000",
           img: GrapesJuice,
-          compositionNutritions: ['Antioksidan Tinggi (resveratrol)', 'Vitamin C', 'polifenol'],
-          benefits: ['Anti-aging', 'Kesehatan Jantung', 'Kulit Kusam'],
+          compositionNutritions: ["Antioksidan Tinggi (resveratrol)", "Vitamin C", "polifenol"],
+          benefits: ["Anti-aging", "Kesehatan Jantung", "Kulit Kusam"],
         },
         {
           nameEN: "Guava",
           nameIND: "Jambu",
           price: "13.000",
           img: GuavaJuice,
-          compositionNutritions: ['Vitamin C Tinggi', 'Serat', 'Folat'],
-          benefits: ['Meningkatkan daya tahan tubuh', 'Sistem Pencernaan', 'Ibu Hamil'],
+          compositionNutritions: ["Vitamin C Tinggi", "Serat", "Folat"],
+          benefits: ["Meningkatkan daya tahan tubuh", "Sistem Pencernaan", "Ibu Hamil"],
         },
         {
           nameEN: "Mango",
           nameIND: "Mangga",
           price: "13.000",
           img: ManggoJuice,
-          compositionNutritions: ['Vitamin A & C', 'Beta-karoten', 'Gula Alami'],
-          benefits: ['Energi Cepat', 'Kulit Bercahaya', 'Bulking Ringan'],
+          compositionNutritions: ["Vitamin A & C", "Beta-karoten", "Gula Alami"],
+          benefits: ["Energi Cepat", "Kulit Bercahaya", "Bulking Ringan"],
         },
         {
           nameEN: "Melon",
           nameIND: "Melon",
           price: "13.000",
           img: MelonJuice,
-          compositionNutritions: ['Kandungan Air Tinggi', 'Vitamin C', 'Kalium'],
-          benefits: ['Hidrasi Tubuh', 'Kulit Sensitif', 'Pencernaan Ringan'],
+          compositionNutritions: ["Kandungan Air Tinggi", "Vitamin C", "Kalium"],
+          benefits: ["Hidrasi Tubuh", "Kulit Sensitif", "Pencernaan Ringan"],
         },
         {
           nameEN: "Orange",
           nameIND: "Jeruk",
           price: "13.000",
           img: OrangeJuice,
-          compositionNutritions: ['Vitamin C', 'Antioksidan', 'Serat Larut'],
-          benefits: ['Meningkatkan daya tahan tubuh', 'Kulit Kering'],
+          compositionNutritions: ["Vitamin C", "Antioksidan", "Serat Larut"],
+          benefits: ["Meningkatkan daya tahan tubuh", "Kulit Kering"],
         },
         {
           nameEN: "Papaya",
           nameIND: "Pepaya",
           price: "13.000",
           img: PapayaJuice,
-          compositionNutritions: ['Enzim Papain', 'Vitamin A & C', 'Serat'],
-          benefits: ['Pencernaan Sehat', 'Kulit Kasar', 'Antiinflamasi'],
+          compositionNutritions: ["Enzim Papain", "Vitamin A & C", "Serat"],
+          benefits: ["Pencernaan Sehat", "Kulit Kasar", "Antiinflamasi"],
         },
         {
           nameEN: "Strawberry",
           nameIND: "Stroberi",
           price: "13.000",
           img: StrawberryJuice,
-          compositionNutritions: ['Vitamin C', 'Asam Ellagic', 'Mangan'],
-          benefits: ['Mencerahkan Kulit', 'Anti-aging', 'Program Diet'],
+          compositionNutritions: ["Vitamin C", "Asam Ellagic", "Mangan"],
+          benefits: ["Mencerahkan Kulit", "Anti-aging", "Program Diet"],
         },
         {
           nameEN: "Soursop",
           nameIND: "Sirsak",
           price: "13.000",
           img: SoursopJuice,
-          compositionNutritions: ['Vitamin B1 & C', 'Serat', 'Senyawa AntiKanker'],
-          benefits: ['Imunitas Tubuh', 'Mengurangi Peradangan', 'Kesehatan Pencernaan'],
+          compositionNutritions: ["Vitamin B1 & C", "Serat", "Senyawa AntiKanker"],
+          benefits: ["Imunitas Tubuh", "Mengurangi Peradangan", "Kesehatan Pencernaan"],
         },
         {
           nameEN: "Tomato",
           nameIND: "Tomat",
           price: "13.000",
           img: TomatoJuice,
-          compositionNutritions: ['Likopen', 'Vitamin C & A', 'Kalium'],
-          benefits: ['Kulit Berminyak', 'Antioksidan Tinggi', 'Jantung Sehat'],
+          compositionNutritions: ["Likopen", "Vitamin C & A", "Kalium"],
+          benefits: ["Kulit Berminyak", "Antioksidan Tinggi", "Jantung Sehat"],
         },
         {
           nameEN: "Watermelon",
           nameIND: "Semangka",
           price: "13.000",
           img: WatermelonJuice,
-          compositionNutritions: ['Kandungan Air Tinggi', 'Likopen', 'Vitamin A & C'],
-          benefits: ['Hidrasi Maksimal', 'Aktifitas Fisik', 'Kulit Segar'],
+          compositionNutritions: ["Kandungan Air Tinggi", "Likopen", "Vitamin A & C"],
+          benefits: ["Hidrasi Maksimal", "Aktifitas Fisik", "Kulit Segar"],
         },
       ],
       foods: [
@@ -230,16 +231,16 @@ export default {
           nameIND: "Burger",
           price: "15.000",
           img: Burger,
-          compositionNutritions: ['Protein Tinggi', 'Lemak', 'Zat Besi'],
-          benefits: ['Diet Tinggi Protein', 'Makanan Cepat dan Mengenyangkan']
+          compositionNutritions: ["Tinggi Protein", "Lemak", "Zat Besi"],
+          benefits: ["Diet Tinggi Protein", "Makanan Cepat"],
         },
         {
           nameEN: "Hotdog",
           nameIND: "Hotdog",
           price: "12.000",
           img: Hotdog,
-          compositionNutritions: ['Daging Olahan', 'Protein', 'Natrium'],
-          benefits: ['Camilan Praktis dan Cepat Saji', 'Penambah Energi untuk Aktivitas Harian']
+          compositionNutritions: ["Daging Olahan", "Protein", "Natrium"],
+          benefits: ["Camilan Praktis", "Penambah Energi"],
         },
       ],
       filteredJuicesMenu: [],
@@ -298,7 +299,7 @@ export default {
       this.details = category;
 
       this.showModal = !this.showModal;
-    }
+    },
   },
   mounted() {
     this.juices.filter((juice, index) => {
@@ -312,30 +313,29 @@ export default {
 
 <style>
 article#products {
-  display: flex;
-  flex-direction: column;
   position: relative;
-  height: 100%;
 }
 
 article#products .header-products {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   border-bottom: 3px solid whitesmoke;
-  margin: 3rem 2.5rem 0;
+  margin: 3rem 1.5rem;
+}
+
+.header-products > * {
+  flex: 1;
 }
 
 .header-products .right-section-menu {
-  margin-right: 1.5rem;
-  width: 30%;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
+  padding-bottom: 0.5rem;
 }
 
 .right-section-menu .categories {
-  padding: 0.5em;
+  padding: 1rem 0.5rem;
 }
 
 .categories .active {
@@ -352,8 +352,9 @@ article#products .header-products {
 }
 
 .right-section-menu .buttons {
-  padding: 0.5em;
   font-size: 2rem;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .buttons a.right-arrow[disabled="true"] i {
@@ -368,11 +369,15 @@ article#products .header-products {
 }
 
 .content-products {
-  align-self: center;
-  width: 87vw;
-  margin: 1rem;
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.content-products.foods {
+  justify-content: flex-start;
+  margin-inline-start: 3rem;
 }
 
 .card {
@@ -381,17 +386,12 @@ article#products .header-products {
   border-radius: 8px;
   display: flex;
   flex-direction: column;
-  margin: 0.5rem;
-}
-
-.card div {
-  margin: 0.5rem 0;
+  width: 20%;
+  text-align: center;
 }
 
 .card-img img {
-  width: 12vmax;
-  border-radius: 10px;
-  margin: 0 3.5rem;
+  width: 65%;
 }
 
 .card-title h2 {
@@ -404,16 +404,15 @@ article#products .header-products {
   display: inline-block;
   width: 100%;
   font-size: 1rem;
-  color: whitesmoke;
-  text-shadow: 1px 1px 1px black, 0 0 1px black;
+  margin-bottom: 1.5em;
+  color: black;
   text-align: center;
-  margin: 0.5em 0;
 }
 
 .card-content span.price {
   display: inline-block;
   font-size: 1.3rem;
-  font-weight: bold;
+  font-weight: 600;
   text-align: center;
   width: 100%;
 }
@@ -421,13 +420,19 @@ article#products .header-products {
 .card .btn-details {
   font-size: 1rem;
   font-weight: bold;
-  background-color: darkorange;
-  color: white;
+  border: 1px solid #ff490f;
+  color: #ff490f;
   padding: 0.5em 1em;
   border-radius: 8px;
   display: inline-block;
   margin: 0.5rem 0;
   text-align: center;
   cursor: pointer;
+  transition: 0.5s;
+}
+
+.card .btn-details:hover {
+  background-color: #ff490f;
+  color: white;
 }
 </style>

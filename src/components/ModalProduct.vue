@@ -21,15 +21,13 @@
 
           <div class="informational-product">
             <div class="recommendation-product">
-              <h2>Recommended For:</h2>
-              <ul v-for="(benefit, index) in details.benefits" :key="index">
-                <li>{{ benefit }}</li>
-              </ul>
+              <h2>Recommended For :</h2>
+              <span v-for="(benefit, index) in details.benefits" :key="index"> <i class="bi bi-check"></i> {{ benefit }} </span>
             </div>
 
             <div class="nutrition-product">
-              <h2>Nutritional Values:</h2>
-              <p v-for="(nutrition, index) in details.compositionNutritions" :key="index">+ {{ nutrition }}</p>
+              <h2>Nutritional Values :</h2>
+              <span v-for="(nutrition, index) in details.compositionNutritions" :key="index"><i class="bi bi-plus-lg"></i> {{ nutrition }}</span>
             </div>
           </div>
         </div>
@@ -61,25 +59,25 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 9999;
 }
 
 .modal {
   background-color: #ff490f;
   position: absolute;
   border-radius: 40px;
-  padding: 0 2rem 2rem;
   color: whitesmoke;
   width: 60%;
 }
 
 .header-modal .close-btn {
   position: absolute;
-  top: 3%;
+  top: 2%;
   right: 0;
   font-size: 2.5rem;
-  padding: 0 .5em;
+  padding: 0 0.5em;
   cursor: pointer;
-  transition: .5s;
+  transition: 0.5s;
 }
 
 .header-modal .close-btn:hover {
@@ -88,28 +86,34 @@ export default {
 
 .header-modal img {
   width: 15%;
+  margin-left: 2rem;
 }
 
 .content-modal {
   display: flex;
   justify-content: space-between;
-  /* gap: 1rem; */
+  margin-inline: 2rem;
+  margin-bottom: 2rem;
 }
 
 .content-modal .product-picture {
   text-align: center;
   background-color: whitesmoke;
-  border-radius: 30px; 
+  border-radius: 30px;
   height: 40%;
   padding: 1rem;
 }
 
+.content-modal .product-picture {
+  width: 40%;
+}
+
 .content-modal .product-picture img {
-  height: 45vmin;
+  max-width: 100%;
 }
 
 .content-modal .detail-product-information {
-  width: 50%;
+  width: 55%;
   display: flex;
   flex-direction: column;
   margin: auto;
@@ -127,13 +131,11 @@ export default {
 
 .detail-product-information .informational-product {
   display: flex;
-  height: 50%;
   justify-content: space-between;
-  gap: 1rem;
 }
 
-.informational-product .recommendation-product ul li  {
-  font-size: 1rem;
+.informational-product .recommendation-product span {
+  display: flex;
 }
 
 .informational-product .nutrition-product {
@@ -146,19 +148,7 @@ export default {
   margin-top: 0.5rem;
 }
 
-.informational-product p {
+.informational-product span {
   font-size: 1rem;
 }
-
-/* .detail-product-information .btn-back {
-  background-color: darkorange;
-  width: 40%;
-  font-size: 1rem;
-  padding: 0.9rem 1rem;
-  margin: 2rem 0;
-  border-radius: 50px;
-  text-align: center;
-  color: white;
-  cursor: pointer;
-} */
 </style>

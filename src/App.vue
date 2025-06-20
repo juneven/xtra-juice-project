@@ -2,12 +2,10 @@
   <header>
     <NavBar />
 
-    <div class="header-content">
-      <div class="left-content" data-aos="fade-right">
-        <span>Fresh Juice</span>
-        <span>Came From</span>
-        <span>Fresh Fruits</span>
-      </div>
+    <div class="header-content" data-aos="fade-right">
+      <span>Fresh Juice</span>
+      <span>Came From</span>
+      <span>Fresh Fruits</span>
     </div>
   </header>
 
@@ -18,7 +16,35 @@
   </main>
 
   <footer>
-    <p class="copyright">&copy;X-TRA JUICE | ALL RIGHTS RESERVED</p>
+    <div class="top-footer">
+      <div class="top-footer-header">
+        <img src="./assets/header-img/logo.png" alt="X-TRA JUICE" class="logo" />
+      </div>
+
+      <div class="top-footer-content">
+        <div class="location">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.056687477547!2d104.00046797472417!3d1.1195430988697368!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31d98be09646b351%3A0x36a826082690c786!2sUniversitas%20Internasional%20Batam!5e0!3m2!1sid!2sid!4v1750393537388!5m2!1sid!2sid"
+            width="600"
+            height="350"
+            style="border: 1px solid white; padding: 0.5rem; background-color: white; border-radius: 10px"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+
+        <div class="whatsapp">
+          <h3 class="title">Contact us :</h3>
+          <i class="bi bi-whatsapp"></i>
+          <span>+62 813-7222-1974</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom-footer">
+      <p class="copyright">&copy;X-TRA JUICE | ALL RIGHTS RESERVED</p>
+    </div>
   </footer>
 </template>
 
@@ -46,11 +72,12 @@ export default {
 
 body {
   font-size: 20px;
+  min-height: 100vh;
 }
 
 #app {
   overflow-x: hidden;
-  font-family: "Roboto", sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 header {
@@ -62,17 +89,18 @@ header {
   padding: 1rem;
 }
 
-header .left-content {
+header .header-content {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   color: white;
   font-size: 5rem;
   font-weight: bold;
-  margin: 2em 0.5em;
+  margin: 1.55em 0.75em;
+  text-shadow: 1px 1px 1px black;
 }
 
-.left-content span:nth-child(2) {
+.header-content span:nth-child(2) {
   font-size: 2.5rem;
   font-weight: normal;
 }
@@ -84,10 +112,35 @@ main {
 footer {
   background-color: #ff490f;
   font-size: 1rem;
-  padding: 2em 1em;
   font-weight: bold;
   color: whitesmoke;
   text-align: center;
+}
+
+.top-footer .top-footer-header img.logo {
+  width: 10%;
+}
+
+.top-footer .top-footer-content {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  font-size: 1.5rem;
+  padding-bottom: 0.5em;
+}
+
+.top-footer .top-footer-content div > * {
+  padding-right: 0.5rem;
+}
+
+.top-footer .top-footer-content .whatsapp {
+  text-align: left;
+}
+
+footer .bottom-footer {
+  background-color: whitesmoke;
+  color: #ff490f;
+  padding-block: 0.5em;
 }
 
 /* Ukuran Mobile Kecil */
@@ -96,14 +149,14 @@ footer {
     padding: 0;
   }
 
-  header .left-content {
-    font-size: 3.5rem;
-    margin: 3em 0.5em;
+  header .header-content {
+    font-size: 2.75rem;
+    margin: 4.5em 0.5em;
     position: relative;
     z-index: 1;
   }
 
-  .left-content span:nth-child(2) {
+  .header-content span:nth-child(2) {
     font-size: 2rem;
   }
 
@@ -116,7 +169,7 @@ footer {
   }
 
   nav img.logo {
-    margin-left: 0.5rem;
+    margin-left: 0.55rem;
   }
 
   nav ul {
@@ -124,7 +177,7 @@ footer {
     right: 0;
     top: 0;
     height: 100vh;
-    width: 30%;
+    width: 40%;
     background-color: #ff490f;
     flex-direction: column;
     justify-content: space-evenly;
@@ -136,7 +189,7 @@ footer {
   }
 
   nav ul li {
-    width: 50%;
+    width: 100%;
   }
 
   nav ul.slide {
@@ -148,24 +201,21 @@ footer {
     margin-right: 1rem;
   }
 
-  article#products {
-    align-items: center;
-  }
-
   article#products .header-products {
     flex-direction: column;
     border: none;
+    margin: 1rem 0.5rem;
   }
 
   .header-products h2.title {
     border-bottom: 3px solid whitesmoke;
     width: 100%;
-    padding-bottom: 0.5rem;
   }
 
   .header-products .right-section-menu {
-    width: 100vw;
-    margin: 1rem auto;
+    width: 100%;
+    margin-top: 1rem;
+    justify-content: space-between;
   }
 
   .categories a {
@@ -173,116 +223,196 @@ footer {
   }
 
   .right-section-menu .buttons {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
   }
 
   .content-products {
-    align-items: center;
-    width: 90vw;
-    margin: 0 auto;
+    gap: 1rem;
+    padding-inline: 1rem;
+  }
+
+  .content-products .card-title h2 {
+    font-size: 1.25rem;
+  }
+
+  .content-products .card-title span {
+    font-size: 0.85rem;
+  }
+
+  .content-products.foods {
+    margin-inline-start: 0;
   }
 
   .card {
-    width: 40vw;
-    margin: 0.5rem auto;
-  }
-
-  .card-img {
-    text-align: center;
-  }
-
-  .card-img img {
-    margin: 0;
+    width: 15%;
+    flex-grow: 1;
+    flex-basis: 40%;
   }
 
   .card-content span.price {
     font-size: 1rem;
   }
 
+  .card .btn-details {
+    font-size: 0.75rem;
+  }
+
   .modal {
     width: 90%;
-    height: 70%;
+    border-radius: 20px;
   }
 
   .header-modal img {
-    width: 20%;
+    width: 25%;
+    margin-left: 1rem;
+  }
+
+  .header-modal .close-btn {
+    font-size: 2rem;
   }
 
   .content-modal {
     flex-direction: column;
     align-items: center;
+    margin-bottom: 2rem;
+    width: 100%;
+    margin-inline: 0;
+  }
+
+  .content-modal .product-picture {
+    width: 65%;
   }
 
   .content-modal .detail-product-information {
     width: 90%;
+    margin-top: 1rem;
   }
 
   .detail-product-information .header-detail-product-information {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
+    margin-inline: 1rem;
   }
 
   .detail-product-information h2 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
+    font-size: 1.25rem;
   }
 
   .detail-product-information h1 {
-    font-size: 2rem;
+    font-size: 1.5rem;
+  }
+
+  .detail-product-information .informational-product {
+    gap: 0.25rem;
+  }
+
+  .detail-product-information .informational-product > * {
+    flex: 1;
   }
 
   .informational-product h2 {
-    font-size: 1rem;
-    margin-top: 0.5rem;
+    font-size: 0.7rem;
+    width: 100%;
   }
 
-  .informational-product .nutrition-product {
-    width: 60%;
+  .informational-product span {
+    font-size: 0.75rem;
   }
 
   article#about-us {
     flex-direction: column;
+    align-items: center;
+    margin: 3.5rem 0;
+    padding: 0.95rem;
+  }
+
+  article#about-us .about-header-content {
+    width: 100%;
+    margin-block: 2rem;
+  }
+
+  article#about-us .about-header-content .underline {
+    width: 50%;
+  }
+
+  .about-content {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
   }
 
   .left-content {
-    display: none;
+    width: 100%;
+    gap: 1rem;
+  }
+
+  .left-content img {
+    width: 90%;
+  }
+
+  .left-content img:nth-child(2) {
+    margin: 0;
   }
 
   .right-content {
-    width: 75%;
-    text-align: justify;
+    width: 100%;
+  }
+
+  .right-content p {
+    font-size: 0.85rem;
+  }
+
+  .top-footer .top-footer-content {
+    flex-direction: column;
+  }
+
+  .top-footer .top-footer-header img.logo {
+    width: 20%;
+  }
+
+  .top-footer .top-footer-content .location iframe {
+    width: 80%;
+  }
+
+  .top-footer .top-footer-content .whatsapp {
+    font-size: 1rem;
+    padding-left: 1em;
+  }
+
+  footer .bottom-footer {
+    font-size: 0.75rem;
   }
 }
 
 /* Ukuran Mobile Sedang sampai besar */
-@media (min-width: 481px) and (max-width: 767px) {
+@media (min-width: 480px) and (max-width: 767px) {
   header {
     padding: 0;
   }
 
-  header .left-content {
-    font-size: 4rem;
-    margin: 3.8em 0.5em;
+  header .header-content {
+    font-size: 3.5rem;
+    margin: 3em 0.6em;
     position: relative;
     z-index: 1;
   }
 
-  .left-content span:nth-child(2) {
-    font-size: 1.5rem;
+  .header-content span:nth-child(2) {
+    font-size: 2rem;
   }
 
   nav {
     border-radius: 0;
-    width: 100vw;
     justify-content: space-between;
     position: relative;
     z-index: 3;
+    height: 10%;
   }
 
-  nav span.logo {
-    margin: 0;
+  nav img.logo {
+    margin-left: 0.75rem;
   }
 
   nav ul {
@@ -301,10 +431,6 @@ footer {
     text-align: center;
   }
 
-  nav ul li {
-    width: 50vw;
-  }
-
   nav ul.slide {
     transform: translateX(0);
   }
@@ -316,29 +442,27 @@ footer {
   article#products .header-products {
     flex-direction: column;
     border: none;
-    width: 95vw;
+    align-items: flex-start;
   }
 
   .header-products h2.title {
     border-bottom: 3px solid whitesmoke;
-    width: 100%;
     padding-bottom: 0.5rem;
+    width: 100%;
+    margin: 1rem 0;
   }
 
   .header-products .right-section-menu {
-    width: 100vw;
-    margin: 1rem auto;
+    justify-content: space-between;
+    width: 100%;
   }
 
   .content-products {
-    align-items: center;
-    width: 90vw;
-    margin: 0 auto;
+    gap: 1.5rem;
   }
 
   .card {
-    width: 40vw;
-    margin: 0.5rem auto;
+    width: 40%;
   }
 
   .card-img {
@@ -354,13 +478,11 @@ footer {
   }
 
   .modal {
-    width: 85vw;
-    height: 90vmax;
-    top: 50vh;
+    width: 80%;
   }
 
   .header-modal img {
-    width: 20vw;
+    width: 15%;
   }
 
   .content-modal {
@@ -369,13 +491,13 @@ footer {
 
   .content-modal .product-picture {
     border-radius: 10px;
-    width: 50%;
+    width: 100%;
     text-align: center;
     margin: 0 auto;
   }
 
   .content-modal .product-picture img {
-    height: 30vw;
+    width: 40%;
   }
 
   .content-modal .detail-product-information {
@@ -383,27 +505,25 @@ footer {
     padding: 0.5rem;
   }
 
-  .detail-product-information h2 {
-    font-size: 1rem;
+  .detail-product-information .header-detail-product-information h2 {
+    font-size: 2rem;
   }
 
-  .detail-product-information h1 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+  .detail-product-information .header-detail-product-information h1 {
+    font-size: 1.8rem;
+  }
+
+  .detail-product-information .informational-product h2 {
+    font-size: 0.75rem;
   }
 
   .detail-product-information .informational-product {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
   }
 
-  .informational-product div {
-    margin: 0 0.5rem;
-    width: 50%;
-  }
-
-  .informational-product h2 {
-    font-size: 1.2rem;
+  .informational-product span {
+    font-size: 0.75rem;
   }
 
   .detail-product-information .btn-back {
@@ -412,15 +532,66 @@ footer {
 
   article#about-us {
     flex-direction: column;
+    align-items: center;
+    margin: 3.5rem 0;
+    padding: 0.95rem;
+  }
+
+  article#about-us .about-header-content {
+    width: 100%;
+    margin-block: 2rem;
+  }
+
+  article#about-us .about-header-content .underline {
+    width: 50%;
+  }
+
+  .about-content {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
   }
 
   .left-content {
-    display: none;
+    width: 100%;
+    gap: 1rem;
+  }
+
+  .left-content img {
+    width: 60%;
+  }
+
+  .left-content img:nth-child(2) {
+    margin: 0;
   }
 
   .right-content {
-    width: 75%;
-    text-align: justify;
+    width: 100%;
+  }
+
+  .right-content p {
+    font-size: 1rem;
+  }
+
+  .top-footer .top-footer-content {
+    flex-direction: column;
+  }
+
+  .top-footer .top-footer-header img.logo {
+    width: 15%;
+  }
+
+  .top-footer .top-footer-content .location iframe {
+    width: 80%;
+  }
+
+  .top-footer .top-footer-content .whatsapp {
+    font-size: 1rem;
+    padding-left: 1em;
+  }
+
+  footer .bottom-footer {
+    font-size: 0.95rem;
   }
 }
 
@@ -430,18 +601,23 @@ footer {
     padding: 0;
   }
 
-  header .left-content {
-    margin: 3em 0.5em;
+  header .header-content {
+    font-size: 4.5rem;
+    margin: 2.5em 0.5em;
+    position: relative;
+    z-index: 1;
   }
 
   nav {
     border-radius: 0;
-    width: 100vmax;
     justify-content: space-between;
+    position: relative;
+    z-index: 3;
+    height: 10%;
   }
 
-  nav span.logo {
-    margin: 0;
+  nav img.logo {
+    margin-left: 0.85rem;
   }
 
   nav ul {
@@ -470,7 +646,6 @@ footer {
   article#products .header-products {
     border: none;
     justify-content: space-between;
-    width: 95vw;
     border-bottom: 3px solid whitesmoke;
   }
 
@@ -488,8 +663,12 @@ footer {
     padding-left: 1.5rem;
   }
 
+  .content-products.foods {
+    margin-left: 0.25rem;
+  }
+
   .card {
-    width: 25vw;
+    width: 30%;
   }
 
   .card-img {
@@ -501,13 +680,11 @@ footer {
   }
 
   .modal {
-    width: 85vw;
-    height: 90vmax;
-    top: 10vh;
+    width: 90%;
   }
 
   .header-modal img {
-    width: 20vw;
+    width: 15%;
   }
 
   .content-modal {
@@ -516,13 +693,13 @@ footer {
 
   .content-modal .product-picture {
     border-radius: 10px;
-    width: 50%;
+    width: 90%;
     text-align: center;
     margin: 0 auto;
   }
 
   .content-modal .product-picture img {
-    height: 30vw;
+    width: 40%;
   }
 
   .content-modal .detail-product-information {
@@ -561,13 +738,68 @@ footer {
     flex-direction: column;
   }
 
+  article#about-us {
+    flex-direction: column;
+    align-items: center;
+    margin: 3.5rem 0;
+    padding: 0.95rem;
+  }
+
+  article#about-us .about-header-content {
+    width: 100%;
+    margin-block: 2rem;
+  }
+
+  article#about-us .about-header-content .underline {
+    width: 50%;
+  }
+
+  .about-content {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+  }
+
   .left-content {
-    display: none;
+    width: 100%;
+    gap: 1rem;
+  }
+
+  .left-content img {
+    width: 45%;
+  }
+
+  .left-content img:nth-child(2) {
+    margin: 0;
   }
 
   .right-content {
-    width: 75%;
-    text-align: justify;
+    width: 100%;
+  }
+
+  .right-content p {
+    font-size: 1.15rem;
+  }
+
+  .top-footer .top-footer-content {
+    flex-direction: column;
+  }
+
+  .top-footer .top-footer-header img.logo {
+    width: 15%;
+  }
+
+  .top-footer .top-footer-content .location iframe {
+    width: 80%;
+  }
+
+  .top-footer .top-footer-content .whatsapp {
+    font-size: 1.2rem;
+    padding-left: 1em;
+  }
+
+  footer .bottom-footer {
+    font-size: rem;
   }
 }
 </style>

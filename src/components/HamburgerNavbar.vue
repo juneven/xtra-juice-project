@@ -12,8 +12,8 @@ export default {
   name: "HamburgerNavbar",
   methods: {
     toggleBtn() {
-      this.$emit('show')
-    }
+      this.$emit("show");
+    },
   },
 };
 </script>
@@ -25,6 +25,7 @@ export default {
   flex-direction: column;
   justify-content: space-between;
   position: relative;
+  margin-inline: 1rem;
 }
 
 .menu-toggle input {
@@ -43,31 +44,31 @@ export default {
   height: 5px;
   background-color: white;
   border-radius: 10px;
-  transition: all .5s;
+  transition: all 0.5s;
 }
 
 /* Animation */
 .menu-toggle span:nth-child(2) {
-    transform-origin: 0 0;
+  transform-origin: 0 0;
 }
 
 .menu-toggle input:checked ~ span:nth-child(2) {
-    transform: rotate(45deg) translate(-1px, -1px);
+  transform: rotate(45deg) translate(-1px, -1px);
 }
 
 .menu-toggle span:nth-child(2) {
-    transform-origin: 0 0;
+  transform-origin: 0 0;
 }
 
 .menu-toggle span:nth-child(4) {
-    transform-origin: 0 100%;
+  transform-origin: 0 100%;
 }
 
 .menu-toggle input:checked ~ span:nth-child(4) {
-    transform: rotate(-45deg) translate(-1px, 0);
+  transform: rotate(-45deg) translate(-1px, -3px);
 }
 
 .menu-toggle input:checked ~ span:nth-child(3) {
-    transform: scale(0);
+  transform: scale(0);
 }
 </style>
