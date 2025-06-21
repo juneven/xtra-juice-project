@@ -65,7 +65,7 @@ article#about-us .about-header-content .underline {
 }
 
 .left-content img {
-  width: 100%;
+  width: 45%;
   border-radius: 10px;
 }
 
