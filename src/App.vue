@@ -344,12 +344,12 @@ footer .bottom-footer {
   }
 
   .left-content {
-    width: 100%;
     gap: 1rem;
+    width: 100%;
   }
 
   .left-content img {
-    width: 90%;
+    width: 45%;
   }
 
   .left-content img:nth-child(2) {
@@ -553,12 +553,11 @@ footer .bottom-footer {
   }
 
   .left-content {
-    width: 100%;
     gap: 1rem;
   }
 
   .left-content img {
-    width: 60%;
+    width: 95%;
   }
 
   .left-content img:nth-child(2) {
