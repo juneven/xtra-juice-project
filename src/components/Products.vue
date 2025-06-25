@@ -322,8 +322,9 @@ article#products {
 article#products .header-products {
   display: flex;
   align-items: center;
-  border-bottom: 3px solid whitesmoke;
+  border-bottom: 3px solid #ff490f;
   margin: 3rem 1.5rem;
+  color: #a63400;
 }
 
 .header-products > * {
@@ -361,12 +362,12 @@ article#products .header-products {
 }
 
 .buttons a.right-arrow[disabled="true"] i {
-  color: #666;
+  color: #f86e44;
 }
 
 .buttons a {
   text-decoration: none;
-  color: black;
+  color: #ff490f;
   padding: 0.5em;
   cursor: pointer;
 }
@@ -385,12 +386,13 @@ article#products .header-products {
 
 .card {
   padding: 0.5em;
-  background-color: whitesmoke;
+  background-color: #f0f0ec;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
   width: 20%;
   text-align: center;
+  box-shadow: 1px 1px 1px black;  
 }
 
 .card-img img {

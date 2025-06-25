@@ -97,7 +97,7 @@ export default {
 body {
   font-size: 20px;
   min-height: 100vh;
-  background-color: white;
+  background-color: #feefd8;
 }
 
 body.products-page-bg {
