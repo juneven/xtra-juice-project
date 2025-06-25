@@ -4,8 +4,9 @@
 
     <ul ref="sidebar">
       <li><a href="/">Home</a></li>
-      <li><a href="#products">Products</a></li>
-      <li><a href="#about-us">About Us</a></li>
+      <li><a href="/products">Products</a></li>
+      <li><a href="/about">About Us</a></li>
+      <li><a href="/contact-us">Contact Us</a></li>
     </ul>
 
     <HamburgerNavbar @show="showSideBar" />
@@ -19,7 +20,7 @@ export default {
   name: "Navbar",
   components: {
     HamburgerNavbar,
-  },
+  }, 
   methods: {
     showSideBar() {
       const sidebar = this.$refs.sidebar;
@@ -32,15 +33,22 @@ export default {
 
 <style>
 nav {
+  position: fixed;
+  top: 3%;
+  left: 2%;
+  right: 2%;
+  height: 12%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  z-index: 100;
   background-color: #ff490f;
   border-radius: 20px;
-  display: flex;
-  align-items: center;
-  height: 13%;
 }
 
 nav img.logo {
-  height: 100%;
+  max-height: 150%;
   margin-left: 2.55rem;
 }
 

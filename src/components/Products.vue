@@ -1,5 +1,5 @@
 <template>
-  <article id="products">
+  <article id="products" :class="{ 'products-page': $route.path === '/products' }">
     <div class="header-products">
       <h2 class="title">Products</h2>
 
@@ -83,11 +83,13 @@ import Burger from "../assets/products-img/foods/burger.png";
 import Hotdog from "../assets/products-img/foods/hotdog.png";
 
 import ModalProduct from "./ModalProduct.vue";
+import Navbar from "./Navbar.vue";
 
 export default {
   name: "Products",
   components: {
     ModalProduct,
+    Navbar,
   },
   data() {
     return {
@@ -314,6 +316,7 @@ export default {
 <style>
 article#products {
   position: relative;
+  margin-block: 8rem;
 }
 
 article#products .header-products {
@@ -377,7 +380,7 @@ article#products .header-products {
 
 .content-products.foods {
   justify-content: flex-start;
-  margin-inline-start: 3rem;
+  margin-left: 3rem;
 }
 
 .card {
@@ -391,7 +394,7 @@ article#products .header-products {
 }
 
 .card-img img {
-  width: 65%;
+  width: 60%;
 }
 
 .card-title h2 {

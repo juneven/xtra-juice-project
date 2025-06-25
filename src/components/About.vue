@@ -1,5 +1,5 @@
 <template>
-  <article id="about-us">
+  <article id="about-us" :class="{ 'about-page': $route.path === '/about' }">
     <div class="about-header-content">
       <h3 class="header-title" data-aos="fade-right">ABOUT US</h3>
       <div class="underline" data-aos="zoom-in"></div>
@@ -13,7 +13,7 @@
 
       <div class="right-content">
         <p class="p1" data-aos="fade-left">
-          Usaha jus ini didirikan oleh Pak Aga dan istrinya pada pertengahan tahun 2006 di kantin Universitas Internasional Batam (UIB). Berangkat dari kepedulian terhadap gaya hidup mahasiswa/i yang banyak mengonsumsi minuman instan,
+          Usaha jus ini didirikan oleh Pak Aga dan istrinya pada pertengahan tahun 2006 di kantin <b><a href="https://uib.ac.id/">Universitas Internasional Batam (UIB)</a></b>. Berangkat dari kepedulian terhadap gaya hidup mahasiswa/i yang banyak mengonsumsi minuman instan,
           mereka ingin menawarkan alternatif yang lebih sehat melalui jus buah segar. Dengan menggunakan bahan-bahan alami tanpa pengawet, usaha ini hadir untuk mengajak generasi muda lebih peduli terhadap kesehatan sejak dini, dimulai dari
           pilihan minuman sehari-hari.
         </p>
@@ -30,7 +30,7 @@
 
 <style>
 article#about-us {
-  margin: 4rem 2rem;
+  margin: 8rem 2rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -40,10 +40,11 @@ article#about-us .about-header-content h3.header-title {
   font-size: 2.5rem;
   letter-spacing: 5px;
   color: #0a090c;
+  margin-top: .5em;
 }
 
 article#about-us .about-header-content .underline {
-  width: 12%;
+  width: 10%;
   height: 10px;
   background-color: #ff490f;
   border-radius: 10px;
@@ -67,6 +68,8 @@ article#about-us .about-header-content .underline {
 .left-content img {
   width: 45%;
   border-radius: 10px;
+  border: 2px solid white;
+  padding: .25rem;
 }
 
 .left-content img:nth-child(2) {
@@ -82,6 +85,6 @@ article#about-us .about-header-content .underline {
   font-size: 1.1rem;
   margin: 1em 0;
   color: #666;
-  line-height: 1.85em;
+  line-height: 1.75em;
 }
 </style>

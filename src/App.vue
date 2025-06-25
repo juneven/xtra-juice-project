@@ -1,7 +1,7 @@
 <template>
-  <header>
-    <NavBar />
+  <NavBar />
 
+  <header v-if="$route.path === '/'">
     <div class="header-content" data-aos="fade-right">
       <span>Fresh Juice</span>
       <span>Came From</span>
@@ -10,12 +10,16 @@
   </header>
 
   <main>
-    <Products />
+    <template v-if="$route.path === '/'">
+      <Products />
 
-    <About />
+      <About />
+    </template>
+
+    <router-view v-else></router-view>
   </main>
 
-  <footer>
+  <footer v-if="$route.path !== '/contact-us'">
     <div class="top-footer">
       <div class="top-footer-header">
         <img src="./assets/header-img/logo.png" alt="X-TRA JUICE" class="logo" />
@@ -28,7 +32,7 @@
             width="600"
             height="350"
             style="border: 1px solid white; padding: 0.5rem; background-color: white; border-radius: 10px"
-            allowfullscreen=""
+            allowfullscreen="false"
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
           ></iframe>
@@ -52,6 +56,7 @@
 import NavBar from "./components/Navbar.vue";
 import Products from "./components/Products.vue";
 import About from "./components/About.vue";
+import Contact from "./components/Contact.vue";
 
 export default {
   name: "App",
@@ -59,6 +64,25 @@ export default {
     NavBar,
     Products,
     About,
+    Contact,
+  },
+  watch: {
+    "$route.path": {
+      immediate: true,
+      handler(newPath) {
+        if (newPath === "/products") {
+          document.body.classList.add("products-page-bg");
+        } else if (newPath === "/contact-us") {
+          document.body.classList.add("contact-page-bg");
+        } else if (newPath === "/about") {
+          document.body.classList.add("about-page-bg");
+        } else {
+          document.body.classList.remove("products-page-bg");
+          document.body.classList.remove("contact-page-bg");
+          document.body.classList.remove("about-page-bg");
+        }
+      },
+    },
   },
 };
 </script>
@@ -73,6 +97,19 @@ export default {
 body {
   font-size: 20px;
   min-height: 100vh;
+  background-color: white;
+}
+
+body.products-page-bg {
+  background-color: #feefd8;
+}
+
+body.about-page-bg {
+  background-color: #feefd8;
+}
+
+body.contact-page-bg {
+  background-color: #feefd8;
 }
 
 #app {
@@ -82,10 +119,10 @@ body {
 
 header {
   background-image: url("./assets/header-img/background-header.jpg");
-  height: 100vh;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  height: 100vh;
   padding: 1rem;
 }
 
@@ -96,7 +133,7 @@ header .header-content {
   color: white;
   font-size: 5rem;
   font-weight: bold;
-  margin: 1.55em 0.75em;
+  margin: 2.55em 0.75em;
   text-shadow: 1px 1px 1px black;
 }
 
@@ -107,6 +144,27 @@ header .header-content {
 
 main {
   margin: 3rem 0.5rem;
+}
+
+article#products.products-page .header-products {
+  border-bottom: 3px solid #ff490f;
+}
+
+article#products.products-page .content-products .card {
+  background-color: #f0f0ec;
+  box-shadow: 1px 1px 1px black;
+}
+
+article#products.products-page .header-products h2.title {
+  color: #a63400;
+}
+
+article#products.products-page .header-products .right-section-menu .buttons a {
+  color: #ff490f;
+}
+
+article#about-us.about-page .about-header-content h3.header-title {
+  color: #a63400;
 }
 
 footer {
@@ -145,13 +203,9 @@ footer .bottom-footer {
 
 /* Ukuran Mobile Kecil */
 @media screen and (max-width: 480px) {
-  header {
-    padding: 0;
-  }
-
   header .header-content {
     font-size: 2.75rem;
-    margin: 4.5em 0.5em;
+    margin: 2.5em 0.5em;
     position: relative;
     z-index: 1;
   }
@@ -162,30 +216,33 @@ footer .bottom-footer {
 
   nav {
     border-radius: 0;
-    height: 8%;
     justify-content: space-between;
     position: relative;
     z-index: 2;
+    left: 0;
   }
 
   nav img.logo {
+    width: 15%;
     margin-left: 0.55rem;
   }
 
   nav ul {
-    position: absolute;
+    position: fixed;
     right: 0;
     top: 0;
-    height: 100vh;
     width: 40%;
+    height: 1200px;
     background-color: #ff490f;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     align-items: center;
     font-size: 1rem;
     transform: translateX(100%);
     transition: all 1s;
     text-align: center;
+    gap: 4em;
+    padding-top: 5em;
   }
 
   nav ul li {
@@ -201,15 +258,27 @@ footer .bottom-footer {
     margin-right: 1rem;
   }
 
+  article#products {
+    margin-block: 0;
+  }
+
   article#products .header-products {
     flex-direction: column;
     border: none;
     margin: 1rem 0.5rem;
   }
 
-  .header-products h2.title {
+  article#products .header-products h2.title {
     border-bottom: 3px solid whitesmoke;
     width: 100%;
+  }
+
+  article#products.products-page .header-products {
+    border: none;
+  }
+
+  article#products.products-page .header-products h2.title {
+    border-bottom: 3px solid #ff490f;
   }
 
   .header-products .right-section-menu {
@@ -324,17 +393,24 @@ footer .bottom-footer {
   article#about-us {
     flex-direction: column;
     align-items: center;
-    margin: 3.5rem 0;
+    margin: 0;
     padding: 0.95rem;
+  }
+
+  article#about-us.about-page {
+    margin: 0;
   }
 
   article#about-us .about-header-content {
     width: 100%;
-    margin-block: 2rem;
   }
 
   article#about-us .about-header-content .underline {
     width: 50%;
+  }
+
+  article#about-us.about-page .about-header-content h3.header-title {
+    margin-top: 0;
   }
 
   .about-content {
@@ -364,6 +440,10 @@ footer .bottom-footer {
     font-size: 0.85rem;
   }
 
+  footer.contact-page {
+    margin-top: 0;
+  }
+
   .top-footer .top-footer-content {
     flex-direction: column;
   }
@@ -388,13 +468,9 @@ footer .bottom-footer {
 
 /* Ukuran Mobile Sedang sampai besar */
 @media (min-width: 480px) and (max-width: 767px) {
-  header {
-    padding: 0;
-  }
-
   header .header-content {
     font-size: 3.5rem;
-    margin: 3em 0.6em;
+    margin: 2em 0.2em;
     position: relative;
     z-index: 1;
   }
@@ -408,27 +484,29 @@ footer .bottom-footer {
     justify-content: space-between;
     position: relative;
     z-index: 3;
-    height: 10%;
+    left: 0;
   }
 
   nav img.logo {
+    width: 15%;
     margin-left: 0.75rem;
   }
 
   nav ul {
-    position: absolute;
+    position: fixed;
     right: 0;
     top: 0;
-    height: 100vh;
+    height: 1200px;
     width: 30%;
     background-color: #ff490f;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     align-items: center;
-    font-size: 1.3rem;
+    font-size: 1rem;
     transform: translateX(100%);
     transition: all 1s;
-    text-align: center;
+    gap: 3em;
+    margin-top: 4.5em;
   }
 
   nav ul.slide {
@@ -439,20 +517,33 @@ footer .bottom-footer {
     display: flex;
   }
 
+  article#products {
+    margin-block: 0;
+  }
+
   article#products .header-products {
     flex-direction: column;
     border: none;
     align-items: flex-start;
   }
 
-  .header-products h2.title {
+  article#products .header-products h2.title {
     border-bottom: 3px solid whitesmoke;
     padding-bottom: 0.5rem;
     width: 100%;
     margin: 1rem 0;
   }
 
-  .header-products .right-section-menu {
+  article#products.products-page .header-products {
+    border: none;
+  }
+
+  article#products.products-page .header-products h2.title {
+    color: #a63400;
+    border-bottom: 3px solid #ff490f;
+  }
+
+  article#products .header-products .right-section-menu {
     justify-content: space-between;
     width: 100%;
   }
@@ -533,13 +624,13 @@ footer .bottom-footer {
   article#about-us {
     flex-direction: column;
     align-items: center;
-    margin: 3.5rem 0;
+    margin: 0;
     padding: 0.95rem;
   }
 
   article#about-us .about-header-content {
     width: 100%;
-    margin-block: 2rem;
+    margin-bottom: 2rem;
   }
 
   article#about-us .about-header-content .underline {
@@ -572,6 +663,10 @@ footer .bottom-footer {
     font-size: 1rem;
   }
 
+  footer.contact-page {
+    margin-top: 0;
+  }
+
   .top-footer .top-footer-content {
     flex-direction: column;
   }
@@ -596,13 +691,9 @@ footer .bottom-footer {
 
 /* Ukuran Tablet */
 @media (min-width: 767px) and (max-width: 1024px) {
-  header {
-    padding: 0;
-  }
-
   header .header-content {
     font-size: 4.5rem;
-    margin: 2.5em 0.5em;
+    margin: 1em 0.15em;
     position: relative;
     z-index: 1;
   }
@@ -612,26 +703,29 @@ footer .bottom-footer {
     justify-content: space-between;
     position: relative;
     z-index: 3;
-    height: 10%;
+    left: 0;
   }
 
   nav img.logo {
+    width: 12%;
     margin-left: 0.85rem;
   }
 
   nav ul {
-    position: absolute;
+    position: fixed;
     right: 0;
     top: 0;
-    height: 100vh;
+    height: 1500px;
     width: 30%;
     background-color: #ff490f;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     align-items: center;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     transform: translateX(100%);
     transition: all 1s;
+    margin-top: 5em;
+    gap: 3em;
   }
 
   nav ul.slide {
@@ -640,6 +734,11 @@ footer .bottom-footer {
 
   .menu-toggle {
     display: flex;
+  }
+
+  article#products,
+  article#contact-us {
+    margin-block: 0;
   }
 
   article#products .header-products {
@@ -735,13 +834,17 @@ footer .bottom-footer {
 
   article#about-us {
     flex-direction: column;
-  }
-
-  article#about-us {
-    flex-direction: column;
     align-items: center;
     margin: 3.5rem 0;
     padding: 0.95rem;
+  }
+
+  article#about-us.about-page .about-header-content h3.header-title {
+    margin: 0;
+  }
+
+  article#about-us.about-page .about-header-content {
+    margin-block: 0;
   }
 
   article#about-us .about-header-content {
@@ -778,6 +881,10 @@ footer .bottom-footer {
 
   .right-content p {
     font-size: 1.15rem;
+  }
+
+  footer.contact-page {
+    margin-top: 0;
   }
 
   .top-footer .top-footer-content {
